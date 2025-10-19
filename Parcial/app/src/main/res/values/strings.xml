@@ -5,4 +5,5 @@
     <string name="msg_titulo">Bienvenido a mi juego \"VDG\"</string>
     <string name="ms_reglas">Reglas</string>
     <string name="msg_iniciobtn">iniciar juego</string>
+    <string name="temporizador">Tiempo</string>
 </resources>

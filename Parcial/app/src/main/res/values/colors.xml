@@ -4,4 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="fondo">#D33D7B83</color>
     <color name="reglas">#4F4F4F</color>
+    <color name="temporizador">#05507C</color>
+    <color name="fondo2">#ABA8A8</color>
 </resources>
