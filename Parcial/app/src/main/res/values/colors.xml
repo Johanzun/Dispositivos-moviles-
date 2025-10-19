@@ -8,4 +8,6 @@
     <color name="fondo2">#ABA8A8</color>
     <color name="red">#CBFF0808</color>
     <color name="blue">#3F51B5</color>
+    <color name="green">#3FF470</color>
+    <color name="yellow">#EBF43F</color>
 </resources>

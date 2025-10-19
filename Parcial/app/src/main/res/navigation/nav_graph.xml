@@ -18,5 +18,18 @@
         android:id="@+id/gameFragment"
         android:name="com.example.juegocolor.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" />
+        tools:layout="@layout/fragment_game" >
+        <action
+            android:id="@+id/action_gameFragment_to_resultFragment"
+            app:destination="@id/resultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.juegocolor.ResultFragment"
+        android:label="fragment_result"
+        tools:layout="@layout/fragment_result" >
+        <action
+            android:id="@+id/action_resultFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
 </navigation>
