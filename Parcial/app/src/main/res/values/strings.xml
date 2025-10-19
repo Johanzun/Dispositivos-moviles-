@@ -2,4 +2,7 @@
     <string name="app_name">JuegoColor</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="msg_titulo">Bienvenido a mi juego \"VDG\"</string>
+    <string name="ms_reglas">Reglas</string>
+    <string name="msg_iniciobtn">iniciar juego</string>
 </resources>
