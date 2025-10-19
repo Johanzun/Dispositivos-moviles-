@@ -6,4 +6,9 @@
     <string name="ms_reglas">Reglas</string>
     <string name="msg_iniciobtn">iniciar juego</string>
     <string name="temporizador">Tiempo</string>
+    <string name="msg_puntaje">puntaje 0</string>
+    <string name="btn_red">rojo</string>
+    <string name="btn_black">negro</string>
+    <string name="blue">azul</string>
+    <string name="yellow">amarillo</string>
 </resources>

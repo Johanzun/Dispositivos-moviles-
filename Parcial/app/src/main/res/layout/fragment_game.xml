@@ -36,6 +36,76 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_temporizador_cuenta" />
 
 
+    <TextView
+        android:id="@+id/txt_puntaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/msg_puntaje"
 
+        app:layout_constraintVertical_bias="0.75"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <GridLayout
+        android:id="@+id/grid_buttons"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:columnCount="2"
+        android:rowCount="2"
+        android:padding="0dp"
+        android:layout_marginTop="260dp"
+        app:layout_constraintVertical_bias="0.9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/btn_red"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:backgroundTint="@color/blue"
+            android:text="@string/btn_red"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btn_black"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_black"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:backgroundTint="@color/blue"/>
+
+        <Button
+            android:id="@+id/btn_blue"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/blue"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:backgroundTint="@color/blue"/>
+
+        <Button
+            android:id="@+id/btn_yellow"
+            android:layout_margin="5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yellow"
+            android:textStyle="bold"
+            android:textSize="17dp"
+            android:backgroundTint="@color/blue"/>
+
+
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
