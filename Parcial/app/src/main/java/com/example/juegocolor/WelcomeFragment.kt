@@ -13,14 +13,14 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
         super.onViewCreated(view, savedInstanceState)
 
         // Configura el botón para iniciar la partida.
-        // Al hacer clic, navega hacia el GameFragment.
+
         val startGameButton = view.findViewById<Button>(R.id.btm_inciar_jeugo)
         startGameButton.setOnClickListener {
             findNavController().navigate(R.id.action_welcomeFragment_to_gameFragment)
         }
 
         // Configura el botón para mostrar las reglas.
-        // Al hacer clic, despliega un diálogo de alerta.
+
         val showRulesButton = view.findViewById<Button>(R.id.btn_mostrarReglas)
         showRulesButton.setOnClickListener {
             displayRulesDialog()

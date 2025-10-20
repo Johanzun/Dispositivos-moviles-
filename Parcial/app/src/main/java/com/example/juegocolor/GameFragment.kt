@@ -29,7 +29,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
 
     // Animación
     private lateinit var colorChangeAnimation: AnimationSet
-
+    // Se obtiene la instancia compartida del ViewModel para comunicar datos entre fragmentos
     private val viewModel: GameViewModel by activityViewModels()
 
 
@@ -56,7 +56,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         // 3. Inicia la lógica del juego
         startGame()
     }
-
+    //incializamos las varialbes del xml y las opviones de los botones
     private fun initializeViews(view: View) {
 
         timerTextView = view.findViewById(R.id.txt_temporizador_cuenta)
@@ -71,7 +71,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
 
         )
     }
-
+    //cargamos las animaciones
     private fun initializeAnimations() {
         val fadeIn = AnimationUtils.loadAnimation(requireContext(), R.anim.fade_in)
         val rotate = AnimationUtils.loadAnimation(requireContext(), R.anim.rotate)
@@ -81,7 +81,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
             addAnimation(rotate)
         }
     }
-
+    //Configura los listeners de clic
     private fun setupButtonListeners() {
         // Mapeamos cada botón a su respectivo nombre de color
         val buttonColorMap = mapOf(
@@ -91,32 +91,32 @@ class GameFragment : Fragment(R.layout.fragment_game) {
             R.id.btn_yellow to "AMARILLO",
 
         )
-
+        // Se itera sobre la lista de botones y se asigna el listener a cada uno
         optionButtons.forEach { button ->
             val colorName = buttonColorMap[button.id]
             if (colorName != null) {
-                button.setOnClickListener { checkAnswer(colorName) }
+                button.setOnClickListener { checkAnswer(colorName) }// le damos el color que le corresponde a cada btuon
             }
         }
     }
 
-
+//iniciamos partida
     private fun startGame() {
-        currentScore = 0
-        updateScoreDisplay()
-        updateRandomColor()
-
+        currentScore = 0//reiniciamos puntaje
+        updateScoreDisplay()//actualizamos puntaje en la UI
+        updateRandomColor()//mostraos el primer color ramdorizado
+        //Crea e inicia un temporizador de 30 segundos
         countdownTimer = object : CountDownTimer(30000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 timerTextView.text = (millisUntilFinished / 1000).toString()
             }
-
+            // 'onFinish' se llama cuando el tiempo se agota.
             override fun onFinish() {
                 endGame()
             }
         }.start()
     }
-
+//Selecciona un nuevo color al azar, actualiza la vista y aplica la animación
     private fun updateRandomColor() {
         val (name, colorValue) = colorPalette.random()
         correctColorName = name
@@ -125,7 +125,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         // aqui se vuelve a ejectuar la animacion cuando el color cambia
         colorDisplayView.startAnimation(colorChangeAnimation)
     }
-
+    // Verifica si la respuesta del jugador es correcta
     private fun checkAnswer(selectedColor: String) {
         if (selectedColor == correctColorName) {
             currentScore++
@@ -135,18 +135,18 @@ class GameFragment : Fragment(R.layout.fragment_game) {
         updateRandomColor()
     }
 
-
+    // Actualiza el TextView que muestra el puntaje
     private fun updateScoreDisplay() {
         scoreTextView.text = currentScore.toString()
     }
 
 
-    private fun endGame() {
+    private fun endGame() {//fin de juego
         //cancelamos timer
         countdownTimer?.cancel()
         optionButtons.forEach { it.isEnabled = false }
         Toast.makeText(requireContext(), "Tiempo terminado", Toast.LENGTH_LONG).show()
-
+            //Guarda el puntaje final en el ViewModel
         viewModel.addScore(currentScore)
 
         findNavController().navigate(
@@ -156,7 +156,7 @@ class GameFragment : Fragment(R.layout.fragment_game) {
     }
 
     override fun onDestroyView() {
-        super.onDestroyView()
+        super.onDestroyView()// cancelamos el temporizador para cuidar memoria en caso se salga del fragmetn
         countdownTimer?.cancel()
     }
 }
